@@ -8,6 +8,8 @@ from linebot import (LineBotApi, WebhookHandler)
 from linebot.models import (MessageEvent, ImageMessage,TextSendMessage)
 from linebot.exceptions import (LineBotApiError, InvalidSignatureError)
 
+from dotenv import load_dotenv
+load_dotenv()
 
 logger = logging.getLogger()
 logger.setLevel(logging.ERROR)
