@@ -8,9 +8,6 @@ from linebot import (LineBotApi, WebhookHandler)
 from linebot.models import (MessageEvent, ImageMessage,TextSendMessage)
 from linebot.exceptions import (LineBotApiError, InvalidSignatureError)
 
-from dotenv import load_dotenv
-load_dotenv()
-
 logger = logging.getLogger()
 logger.setLevel(logging.ERROR)
 
@@ -33,7 +30,7 @@ handler = WebhookHandler(channel_secret)
 
 # boto3を利用してS3連携
 s3 = boto3.client("s3")
-bucket = "20111110-s3"
+bucket = "20211110-s3"
 
 #2.イベントからLINEBOT署名とボディ内容を受け取る
 
@@ -70,7 +67,7 @@ def lambda_handler(event, context):
 
         # 画像ファイルを保存
         # key = "origin_photo/" + message_id + '.jpg'
-        key = "2011/" + message_id + '.jpg'
+        key = "2021/" + message_id + '.jpg'
         new_key = message_id[-3:]
         s3.put_object(Bucket=bucket, Key=key, Body=content)
 
