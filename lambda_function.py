@@ -37,7 +37,7 @@ bucket = "20211110-s3"
 # Lambdaのメインファンクション
 def lambda_handler(event, context):
 
-    # 認証用のX-Line-Signatureヘッダー
+    # 認証用のx-line-signatureヘッダー
     signature = event["headers"]["x-line-signature"]
     body = event["body"]
 
